@@ -15,6 +15,7 @@
       color: #f0f0f0;
       line-height: 1.6;
       overflow-x: hidden;
+      min-height: 100vh;
     }
     a { color: inherit; text-decoration: none; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
@@ -188,7 +189,14 @@
       transform: translateY(-2px);
     }
 
-    section { padding: 5rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); position: relative; z-index: 1; background: #0b0b0b; }
+    section {
+      padding: 5rem 0;
+      position: relative;
+      z-index: 1;
+      background: rgba(11, 11, 11, 0.6);
+      backdrop-filter: blur(2px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
     section:last-of-type { border-bottom: none; }
     .section-title {
       font-size: 2.4rem;
@@ -197,7 +205,7 @@
       margin-bottom: 0.5rem;
     }
     .section-sub {
-      color: #999;
+      color: #ccc;
       font-size: 1.05rem;
       margin-bottom: 2.5rem;
     }
@@ -211,7 +219,7 @@
     }
     .about-text p {
       font-size: 1.1rem;
-      color: #ccc;
+      color: #e0e0e0;
       margin-bottom: 1.2rem;
     }
     .about-text .highlight { color: #fff; font-weight: 600; }
@@ -221,23 +229,23 @@
       gap: 1.5rem;
     }
     .stat-card {
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.05);
       border-radius: 16px;
       padding: 1.5rem 1rem;
       text-align: center;
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: background 0.2s;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.2s, transform 0.2s;
     }
-    .stat-card:hover { background: rgba(255,255,255,0.06); }
+    .stat-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
     .stat-card i { font-size: 2rem; color: #ddd; margin-bottom: 0.3rem; }
     .stat-number { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
-    .stat-label { font-size: 0.9rem; color: #888; }
+    .stat-label { font-size: 0.9rem; color: #aaa; }
 
     .commands-wrapper {
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.04);
       border-radius: 20px;
       padding: 2rem;
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.06);
     }
     .commands-search {
       display: flex;
@@ -250,7 +258,7 @@
       padding: 0.8rem 1.2rem;
       border-radius: 40px;
       border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.06);
       color: #f0f0f0;
       font-size: 1rem;
       outline: none;
@@ -304,19 +312,19 @@
       border-radius: 10px;
     }
     .command-item {
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.04);
       padding: 0.5rem 0.8rem;
       border-radius: 12px;
       font-size: 0.85rem;
       font-weight: 500;
-      border: 1px solid rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
       transition: background 0.15s, border-color 0.15s;
       display: flex;
       align-items: center;
       gap: 0.4rem;
     }
     .command-item:hover {
-      background: rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.08);
       border-color: rgba(255,255,255,0.1);
     }
     .command-item .cmd-prefix {
@@ -365,7 +373,7 @@
     }
     .commands-stats {
       text-align: center;
-      color: #888;
+      color: #aaa;
       font-size: 0.9rem;
       margin-bottom: 1rem;
     }
@@ -374,7 +382,7 @@
       display: flex;
       align-items: center;
       gap: 2rem;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.04);
       border-radius: 24px;
       padding: 2rem 2.5rem;
       border: 1px solid rgba(255,255,255,0.06);
@@ -417,7 +425,7 @@
 
     .invite-section {
       text-align: center;
-      background: linear-gradient(145deg, #111, #0b0b0b);
+      background: rgba(255,255,255,0.03);
       border-radius: 32px;
       padding: 3rem 2rem;
       border: 1px solid rgba(255,255,255,0.05);
@@ -428,7 +436,7 @@
       padding: 2rem 0;
       text-align: center;
       border-top: 1px solid rgba(255,255,255,0.04);
-      color: #666;
+      color: #888;
       font-size: 0.85rem;
     }
     footer i { margin: 0 4px; }
@@ -557,7 +565,7 @@
     <div class="container">
       <div class="invite-section">
         <h2 style="font-size:2rem; font-weight:700;">Ready to bring ^^ to your server?</h2>
-        <p style="color:#aaa; margin-bottom:2rem;">Click below to invite the bot and start using 800+ commands instantly.</p>
+        <p style="color:#ccc; margin-bottom:2rem;">Click below to invite the bot and start using 800+ commands instantly.</p>
         <a href="https://discord.com/oauth2/authorize?client_id=1499412051418812479" target="_blank" class="btn btn-primary" style="font-size:1.1rem; padding:1rem 3rem;">
           <i class="fas fa-plus-circle"></i> Invite ^^
         </a>
@@ -739,7 +747,7 @@
 
     fetchLanyard();
 
-    // ─── WebGL Aurora Background ───
+    // ─── Enhanced Aurora Borealis ───
     (function initAurora() {
       const canvas = document.getElementById('aurora-canvas');
       const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
@@ -769,11 +777,12 @@
         uniform vec2 u_resolution;
         uniform float u_time;
 
+        // ── Noise Functions ──
         float hash(vec2 p) {
           return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
         }
 
-        float noise(vec2 p) {
+        float smoothNoise(vec2 p) {
           vec2 i = floor(p);
           vec2 f = fract(p);
           f = f * f * (3.0 - 2.0 * f);
@@ -788,45 +797,119 @@
           float value = 0.0;
           float amp = 0.5;
           float freq = 1.0;
-          for (int i = 0; i < 4; i++) {
-            value += amp * noise(p * freq);
+          for (int i = 0; i < 6; i++) {
+            value += amp * smoothNoise(p * freq);
             amp *= 0.5;
             freq *= 2.0;
           }
           return value;
         }
 
+        // ── Main ──
         void main() {
           vec2 uv = gl_FragCoord.xy / u_resolution.xy;
           vec2 p = uv;
           p.x *= u_resolution.x / u_resolution.y;
 
-          float time = u_time * 0.05;
+          float time = u_time * 0.025;
 
-          vec2 q = p * 1.5;
-          float aurora = 0.0;
-          float n1 = fbm(q + vec2(time * 0.1, time * 0.05));
-          aurora += n1 * 0.6;
-          float n2 = fbm(q * 2.0 - vec2(time * 0.15, time * 0.1));
-          aurora += n2 * 0.4;
-          float n3 = fbm(q * 3.0 + vec2(time * 0.05, -time * 0.08));
-          aurora += n3 * 0.3;
+          // ── Aurora Layers ──
+          // Layer 1: Main curtain (slow, wide)
+          vec2 q1 = p * vec2(1.4, 0.6) + vec2(time * 0.08, time * 0.04);
+          float n1 = fbm(q1);
 
-          vec3 color1 = vec3(0.1, 0.6, 1.0);
-          vec3 color2 = vec3(0.8, 0.3, 1.0);
-          vec3 color3 = vec3(0.0, 1.0, 0.6);
-          vec3 color4 = vec3(0.2, 0.8, 0.2);
+          // Layer 2: Detail curtain (faster, narrower)
+          vec2 q2 = p * vec2(2.2, 0.5) + vec2(time * 0.15, -time * 0.02);
+          float n2 = fbm(q2);
 
-          float mixVal = aurora * 0.8 + 0.2 * (0.5 + 0.5 * sin(p.y * 3.0 + time));
-          vec3 color = mix(color1, color2, mixVal);
-          color = mix(color, color3, (0.5 + 0.5 * sin(p.x * 4.0 + time * 0.2)));
-          color = mix(color, color4, (0.5 + 0.5 * cos(p.y * 2.0 + time * 0.3)));
+          // Layer 3: Fine structure
+          vec2 q3 = p * vec2(3.5, 0.4) + vec2(-time * 0.1, time * 0.03);
+          float n3 = fbm(q3);
 
-          color *= 0.8 + 0.4 * aurora;
+          // Layer 4: Very fine shimmer
+          vec2 q4 = p * vec2(5.0, 0.3) + vec2(time * 0.2, time * 0.05);
+          float n4 = smoothNoise(q4);
 
-          float vignette = 1.0 - length(uv - 0.5) * 0.8;
+          // ── Vertical Falloff ──
+          // Strongest at the top, fades down naturally
+          float heightGradient = exp(-uv.y * 2.8) * 0.9 + 0.1;
+
+          // ── Combine ──
+          float aurora = (n1 * 0.45 + n2 * 0.25 + n3 * 0.15 + n4 * 0.15) * heightGradient;
+
+          // ── Curtain Banding ──
+          float bands = 0.5 + 0.5 * sin(p.x * 7.0 + p.y * 2.5 + time * 0.2);
+          float bands2 = 0.6 + 0.4 * sin(p.x * 11.0 - p.y * 3.0 + time * 0.3);
+          float bands3 = 0.7 + 0.3 * sin(p.x * 15.0 + p.y * 4.0 + time * 0.4);
+          float banding = bands * 0.6 + bands2 * 0.3 + bands3 * 0.1;
+
+          aurora *= banding;
+
+          // ── Ray / Streak Effect ──
+          float rays = 0.8 + 0.2 * sin(p.x * 20.0 + p.y * 8.0 + time * 0.5);
+          aurora *= rays;
+
+          // ── Intensity Boost ──
+          aurora = pow(aurora, 0.9) * 1.1;
+
+          // ── Colors ──
+          vec3 color = vec3(0.0);
+
+          // Primary aurora colors
+          vec3 green1 = vec3(0.15, 0.95, 0.35);
+          vec3 green2 = vec3(0.0, 0.8, 0.5);
+          vec3 teal = vec3(0.0, 0.7, 0.7);
+          vec3 purple = vec3(0.6, 0.2, 0.9);
+          vec3 blue = vec3(0.2, 0.4, 1.0);
+          vec3 pink = vec3(0.9, 0.3, 0.6);
+
+          // Mix based on position and noise
+          float mixVal = aurora * 0.7 + 0.3;
+
+          // Base: green dominant
+          color = mix(green1, green2, mixVal);
+
+          // Add teal where aurora is strong
+          color = mix(color, teal, (0.5 + 0.5 * sin(p.y * 4.0 + time * 0.1)) * aurora * 0.3);
+
+          // Add purple at the edges
+          float edgeFactor = abs(p.x - 0.5) * 2.0;
+          color = mix(color, purple, edgeFactor * aurora * 0.3);
+
+          // Add blue hints
+          color = mix(color, blue, (0.5 + 0.5 * cos(p.x * 5.0 + time * 0.15)) * aurora * 0.2);
+
+          // Rare pink/red at the top (high-altitude aurora)
+          float topPink = exp(-uv.y * 6.0) * 0.5;
+          color = mix(color, pink, topPink * aurora * 0.2);
+
+          // ── Intensity ──
+          color *= aurora * 1.4;
+
+          // ── Starfield (very subtle) ──
+          float stars = 0.0;
+          vec2 starPos = p * 200.0;
+          vec2 starGrid = floor(starPos);
+          vec2 starFract = fract(starPos);
+          float starBright = hash(starGrid);
+          if (starBright > 0.98) {
+            float dist = length(starFract - 0.5);
+            if (dist < 0.02) {
+              stars = (1.0 - dist / 0.02) * 0.5;
+            }
+          }
+          // Only show stars at the top
+          stars *= (1.0 - uv.y * 1.2);
+          color += vec3(0.8, 0.9, 1.0) * stars;
+
+          // ── Vignette ──
+          float vignette = 1.0 - length(uv - 0.5) * 0.6;
           color *= vignette;
 
+          // ── Brightness floor ──
+          color += 0.015;
+
+          // ── Output ──
           gl_FragColor = vec4(color, 1.0);
         }
       `;
