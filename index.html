@@ -4,20 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>^^ · Discord Bot</title>
-  <!-- Font Awesome 6 (SVG icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Google Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <style>
-    /* ----- RESET & BASE ----- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
       background: #0b0b0b;
@@ -25,28 +16,17 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-    /* ----- NAVIGATION ----- */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 1000;
       background: rgba(11, 11, 11, 0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       padding: 0.8rem 0;
-      transition: background 0.3s;
     }
     nav .container {
       display: flex;
@@ -80,6 +60,7 @@
       list-style: none;
       font-weight: 500;
       font-size: 0.9rem;
+      flex-wrap: wrap;
     }
     .nav-links a {
       opacity: 0.7;
@@ -88,13 +69,7 @@
       align-items: center;
       gap: 6px;
     }
-    .nav-links a:hover {
-      opacity: 1;
-      color: #fff;
-    }
-    .nav-links a i {
-      font-size: 0.9rem;
-    }
+    .nav-links a:hover { opacity: 1; color: #fff; }
     .nav-cta {
       background: #fff;
       color: #000 !important;
@@ -104,12 +79,8 @@
       font-weight: 600;
       transition: background 0.2s, transform 0.2s;
     }
-    .nav-cta:hover {
-      background: #ddd;
-      transform: scale(1.03);
-    }
+    .nav-cta:hover { background: #ddd; transform: scale(1.03); }
 
-    /* ----- HERO ----- */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -145,9 +116,7 @@
       margin-bottom: 1.5rem;
       transition: transform 0.4s;
     }
-    .hero-logo:hover {
-      transform: scale(1.04);
-    }
+    .hero-logo:hover { transform: scale(1.04); }
     .hero h1 {
       font-size: 4.5rem;
       font-weight: 800;
@@ -155,10 +124,7 @@
       line-height: 1.1;
       margin-bottom: 0.5rem;
     }
-    .hero h1 .caret {
-      font-weight: 300;
-      color: #888;
-    }
+    .hero h1 .caret { font-weight: 300; color: #888; }
     .hero .subtitle {
       font-size: 1.2rem;
       color: #aaa;
@@ -177,9 +143,7 @@
       margin-bottom: 2rem;
       color: #ccc;
     }
-    .hero .badge i {
-      margin-right: 8px;
-    }
+    .hero .badge i { margin-right: 8px; }
     .hero-buttons {
       display: flex;
       gap: 1rem;
@@ -217,14 +181,8 @@
       transform: translateY(-2px);
     }
 
-    /* ----- SECTION COMMON ----- */
-    section {
-      padding: 5rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-    section:last-of-type {
-      border-bottom: none;
-    }
+    section { padding: 5rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    section:last-of-type { border-bottom: none; }
     .section-title {
       font-size: 2.4rem;
       font-weight: 700;
@@ -236,13 +194,8 @@
       font-size: 1.05rem;
       margin-bottom: 2.5rem;
     }
-    .section-title i {
-      margin-right: 12px;
-      color: #aaa;
-      font-size: 1.8rem;
-    }
+    .section-title i { margin-right: 12px; color: #aaa; font-size: 1.8rem; }
 
-    /* ----- ABOUT ----- */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -254,10 +207,7 @@
       color: #ccc;
       margin-bottom: 1.2rem;
     }
-    .about-text .highlight {
-      color: #fff;
-      font-weight: 600;
-    }
+    .about-text .highlight { color: #fff; font-weight: 600; }
     .about-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -271,113 +221,148 @@
       border: 1px solid rgba(255,255,255,0.05);
       transition: background 0.2s;
     }
-    .stat-card:hover {
-      background: rgba(255,255,255,0.06);
-    }
-    .stat-card i {
-      font-size: 2rem;
-      color: #ddd;
-      margin-bottom: 0.3rem;
-    }
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
-    .stat-label {
-      font-size: 0.9rem;
-      color: #888;
-    }
+    .stat-card:hover { background: rgba(255,255,255,0.06); }
+    .stat-card i { font-size: 2rem; color: #ddd; margin-bottom: 0.3rem; }
+    .stat-number { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
+    .stat-label { font-size: 0.9rem; color: #888; }
 
-    /* ----- FEATURES ----- */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.8rem;
-      margin-top: 1rem;
-    }
-    .feature-item {
+    .commands-wrapper {
       background: rgba(255,255,255,0.02);
-      border-radius: 16px;
-      padding: 2rem 1.2rem;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.04);
-      transition: transform 0.25s, border-color 0.2s;
-    }
-    .feature-item:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255,255,255,0.12);
-    }
-    .feature-item i {
-      font-size: 2.4rem;
-      color: #e0e0e0;
-      margin-bottom: 0.8rem;
-    }
-    .feature-item h4 {
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-    .feature-item p {
-      font-size: 0.9rem;
-      color: #999;
-    }
-
-    /* ----- COMMANDS / TECH ----- */
-    .commands-showcase {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: center;
-      justify-content: center;
-    }
-    .commands-showcase .big-number {
-      font-size: 5rem;
-      font-weight: 800;
-      line-height: 1;
-      background: linear-gradient(135deg, #fff 40%, #666);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .commands-showcase .desc {
-      font-size: 1.2rem;
-      color: #aaa;
-    }
-    .tech-icons {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 1.5rem;
-    }
-    .tech-icons span {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.04);
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-      font-weight: 500;
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .tech-icons i {
-      font-size: 1.6rem;
-    }
-
-    /* ----- INVITE ----- */
-    .invite-section {
-      text-align: center;
-      background: linear-gradient(145deg, #111, #0b0b0b);
-      border-radius: 32px;
-      padding: 3rem 2rem;
+      border-radius: 20px;
+      padding: 2rem;
       border: 1px solid rgba(255,255,255,0.05);
     }
-    .invite-section .btn {
-      font-size: 1.1rem;
-      padding: 1rem 2.8rem;
+    .commands-search {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .commands-search input {
+      flex: 1;
+      padding: 0.8rem 1.2rem;
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: #f0f0f0;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.2s;
+      min-width: 200px;
+    }
+    .commands-search input:focus {
+      border-color: rgba(255,255,255,0.25);
+    }
+    .commands-search .category-filter {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .commands-search .category-filter button {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      color: #ccc;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .commands-search .category-filter button:hover {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+    .commands-search .category-filter button.active {
+      background: #fff;
+      color: #0b0b0b;
+      border-color: #fff;
+    }
+    .commands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.8rem;
+      max-height: 600px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+    .commands-grid::-webkit-scrollbar {
+      width: 6px;
+    }
+    .commands-grid::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.02);
+    }
+    .commands-grid::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+    }
+    .command-item {
+      background: rgba(255,255,255,0.03);
+      padding: 0.5rem 0.8rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.15s, border-color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .command-item:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.1);
+    }
+    .command-item .cmd-prefix {
+      color: #777;
+      font-weight: 300;
+      margin-right: 0.2rem;
+    }
+    .command-item .cmd-name {
+      color: #e0e0e0;
+    }
+    .command-item .cmd-cat-badge {
+      font-size: 0.65rem;
+      background: rgba(255,255,255,0.06);
+      padding: 0.1rem 0.5rem;
+      border-radius: 20px;
+      color: #999;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .pagination button {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      color: #ccc;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .pagination button:hover {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+    .pagination button.active {
+      background: #fff;
+      color: #0b0b0b;
+      border-color: #fff;
+    }
+    .commands-stats {
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
     }
 
-    /* ----- DEVELOPER CARD (Lanyard) ----- */
     .dev-card {
       display: flex;
       align-items: center;
@@ -396,10 +381,7 @@
       object-fit: cover;
       border: 2px solid rgba(255,255,255,0.1);
     }
-    .dev-info h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
+    .dev-info h3 { font-size: 1.5rem; font-weight: 600; }
     .dev-info .dev-status {
       display: flex;
       align-items: center;
@@ -423,16 +405,18 @@
       gap: 1.2rem;
       margin-top: 0.5rem;
     }
-    .dev-links a {
-      color: #aaa;
-      transition: color 0.2s;
-      font-size: 1.2rem;
-    }
-    .dev-links a:hover {
-      color: #fff;
-    }
+    .dev-links a { color: #aaa; transition: color 0.2s; font-size: 1.2rem; }
+    .dev-links a:hover { color: #fff; }
 
-    /* ----- FOOTER ----- */
+    .invite-section {
+      text-align: center;
+      background: linear-gradient(145deg, #111, #0b0b0b);
+      border-radius: 32px;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .invite-section .btn { font-size: 1.1rem; padding: 1rem 2.8rem; }
+
     footer {
       padding: 2rem 0;
       text-align: center;
@@ -440,43 +424,28 @@
       color: #666;
       font-size: 0.85rem;
     }
-    footer i {
-      margin: 0 4px;
-    }
+    footer i { margin: 0 4px; }
 
-    /* ----- ANIMATIONS (reveal) ----- */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ----- RESPONSIVE ----- */
     @media (max-width: 768px) {
       .container { padding: 0 1.2rem; }
       .hero h1 { font-size: 3rem; }
       .hero-logo { width: 100px; height: 100px; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .about-stats { grid-template-columns: 1fr 1fr; }
-      .nav-links { display: none; } /* mobile: you'd add a hamburger, but we keep simple */
-      .nav-links.mobile-show { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #0b0b0b; padding: 1rem 2rem; border-bottom: 1px solid #222; }
-      .nav-cta { display: none; } /* we keep invite in hero */
+      .nav-links { display: none; }
+      .commands-grid { grid-template-columns: 1fr 1fr; max-height: 400px; }
       .dev-card { flex-direction: column; text-align: center; padding: 1.5rem; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 2.4rem; }
       .stat-number { font-size: 1.6rem; }
-      .features-grid { grid-template-columns: 1fr 1fr; }
+      .commands-grid { grid-template-columns: 1fr; }
+      .commands-search { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
     <div class="container">
       <div class="nav-brand">
@@ -485,54 +454,50 @@
       </div>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-        <li><a href="#features"><i class="fas fa-grid-2"></i> Features</a></li>
-        <li><a href="#commands"><i class="fas fa-terminal"></i> Commands</a></li>
-        <li><a href="#tech"><i class="fas fa-code"></i> Tech</a></li>
+        <li><a href="#commands"><i class="fas fa-list"></i> Commands</a></li>
         <li><a href="#invite" class="nav-cta"><i class="fas fa-plus-circle"></i> Invite</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-content">
       <img src="https://i.ibb.co/W4tk7RQR/9e25edf141222c0bbe8106f0cb7f0c55.jpg" alt="^^ logo" class="hero-logo" />
       <h1>^^ <span class="caret">·</span></h1>
-      <p class="subtitle">The multi‑purpose Discord bot with <strong>1000+ commands</strong></p>
+      <p class="subtitle">The multi‑purpose Discord bot with <strong>800+ commands</strong></p>
       <div class="badge"><i class="fas fa-robot"></i> Built with discord.js · 2025</div>
       <div class="hero-buttons">
         <a href="https://discord.com/oauth2/authorize?client_id=1499412051418812479" target="_blank" class="btn btn-primary">
           <i class="fas fa-plus-circle"></i> Invite to Server
         </a>
-        <a href="#about" class="btn btn-outline">
-          <i class="fas fa-arrow-down"></i> Learn More
+        <a href="#commands" class="btn btn-outline">
+          <i class="fas fa-arrow-down"></i> View Commands
         </a>
       </div>
     </div>
   </section>
 
-  <!-- About -->
   <section id="about">
     <div class="container">
-      <div class="about-grid reveal">
+      <div class="about-grid">
         <div class="about-text">
           <h2 class="section-title"><i class="fas fa-caret-right"></i> About ^^</h2>
           <p>
-            <span class="highlight">^^</span> is a powerful, all‑in‑one Discord bot crafted with 
-            <span class="highlight">discord.js</span>. With over <strong>1000 commands</strong> 
-            spanning moderation, fun, utility, music, economy, and more, it's designed to 
-            enhance any server.
+            <span class="highlight">^^</span> is a powerful, all‑in‑one Discord bot crafted with
+            <span class="highlight">discord.js</span>. With over <strong>800 commands</strong>
+            spanning moderation, security, economy, utility, social, and advanced systems,
+            it's designed to enhance any server.
           </p>
           <p>
-            Leveraging external APIs and databases, ^^ delivers real‑time information, 
-            custom configurations, and a seamless user experience — all maintained by 
+            Leveraging external APIs and databases, ^^ delivers real‑time information,
+            custom configurations, and a seamless user experience — all maintained by
             a solo developer.
           </p>
         </div>
         <div class="about-stats">
           <div class="stat-card">
             <i class="fas fa-hashtag"></i>
-            <div class="stat-number">1000+</div>
+            <div class="stat-number">800+</div>
             <div class="stat-label">Commands</div>
           </div>
           <div class="stat-card">
@@ -555,83 +520,35 @@
     </div>
   </section>
 
-  <!-- Features -->
-  <section id="features">
-    <div class="container">
-      <h2 class="section-title reveal"><i class="fas fa-cubes"></i> Key Features</h2>
-      <p class="section-sub reveal">A taste of what ^^ can do — categories packed with commands.</p>
-      <div class="features-grid">
-        <div class="feature-item reveal">
-          <i class="fas fa-gavel"></i>
-          <h4>Moderation</h4>
-          <p>Kick, ban, mute, purge, automod &amp; more</p>
-        </div>
-        <div class="feature-item reveal">
-          <i class="fas fa-face-smile"></i>
-          <h4>Fun &amp; Games</h4>
-          <p>Memes, trivia, minigames, and interactive fun</p>
-        </div>
-        <div class="feature-item reveal">
-          <i class="fas fa-music"></i>
-          <h4>Music</h4>
-          <p>High‑quality playback with queue &amp; filters</p>
-        </div>
-        <div class="feature-item reveal">
-          <i class="fas fa-coins"></i>
-          <h4>Economy</h4>
-          <p>Virtual currency, shops, gambling, leaderboards</p>
-        </div>
-        <div class="feature-item reveal">
-          <i class="fas fa-sliders"></i>
-          <h4>Utility</h4>
-          <p>Reminders, polls, weather, calculator, etc.</p>
-        </div>
-        <div class="feature-item reveal">
-          <i class="fas fa-robot"></i>
-          <h4>AI &amp; More</h4>
-          <p>Chat bots, image generation, and advanced tools</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Commands & Tech -->
   <section id="commands">
     <div class="container">
-      <div class="commands-showcase reveal">
-        <div>
-          <span class="big-number">1000+</span>
-          <div class="desc">commands ready to use</div>
+      <h2 class="section-title"><i class="fas fa-list"></i> Command List</h2>
+      <p class="section-sub">All <span id="totalCmdCount"></span> commands, organised by category. Search or filter below.</p>
+      <div class="commands-wrapper">
+        <div class="commands-search">
+          <input type="text" id="cmdSearch" placeholder="Search commands..." />
+          <div class="category-filter" id="categoryFilter">
+            <button class="active" data-cat="all">All</button>
+            <button data-cat="moderation">Moderation</button>
+            <button data-cat="security">Security</button>
+            <button data-cat="economy">Economy</button>
+            <button data-cat="social">Social</button>
+            <button data-cat="utility">Utility</button>
+            <button data-cat="advanced">Advanced</button>
+          </div>
         </div>
-        <div style="text-align: left; max-width: 400px;">
-          <p style="color:#ccc; font-size:1rem;">
-            From simple utility to complex interactions, ^^ covers every need. 
-            Continuously updated with new features and community suggestions.
-          </p>
-        </div>
+        <div class="commands-stats">Showing <span id="visibleCount">0</span> commands</div>
+        <div class="commands-grid" id="commandsGrid"></div>
+        <div class="pagination" id="pagination"></div>
       </div>
     </div>
   </section>
 
-  <section id="tech">
-    <div class="container">
-      <h2 class="section-title reveal"><i class="fas fa-microchip"></i> Technology Stack</h2>
-      <p class="section-sub reveal">Built with modern tools for performance and reliability.</p>
-      <div class="tech-icons reveal">
-        <span><i class="fab fa-js-square" style="color:#f7df1e;"></i> JavaScript (ES6+)</span>
-        <span><i class="fab fa-discord" style="color:#5865f2;"></i> discord.js v14</span>
-        <span><i class="fas fa-cloud" style="color:#66b0ff;"></i> REST APIs</span>
-        <span><i class="fas fa-database" style="color:#7b8c9e;"></i> MongoDB / PostgreSQL</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Invite -->
   <section id="invite">
     <div class="container">
-      <div class="invite-section reveal">
+      <div class="invite-section">
         <h2 style="font-size:2rem; font-weight:700;">Ready to bring ^^ to your server?</h2>
-        <p style="color:#aaa; margin-bottom:2rem;">Click below to invite the bot and start using 1000+ commands instantly.</p>
+        <p style="color:#aaa; margin-bottom:2rem;">Click below to invite the bot and start using 800+ commands instantly.</p>
         <a href="https://discord.com/oauth2/authorize?client_id=1499412051418812479" target="_blank" class="btn btn-primary" style="font-size:1.1rem; padding:1rem 3rem;">
           <i class="fas fa-plus-circle"></i> Invite ^^
         </a>
@@ -639,12 +556,11 @@
     </div>
   </section>
 
-  <!-- Developer (Lanyard) -->
   <section id="developer" style="border-bottom: none;">
     <div class="container">
-      <h2 class="section-title reveal"><i class="fas fa-user-cog"></i> Developer</h2>
-      <p class="section-sub reveal">Meet the solo dev behind ^^</p>
-      <div class="dev-card reveal" id="devCard">
+      <h2 class="section-title"><i class="fas fa-user-cog"></i> Developer</h2>
+      <p class="section-sub">Meet the solo dev behind ^^</p>
+      <div class="dev-card" id="devCard">
         <img src="" alt="Developer avatar" class="dev-avatar" id="devAvatar" />
         <div class="dev-info">
           <h3 id="devName">Loading...</h3>
@@ -665,7 +581,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; 2026 ^^ Bot · Made with <i class="fas fa-heart" style="color:#888;"></i> by <a href="https://dontcare-dev.github.io/Deathy.2v.dev/" target="_blank" style="color:#aaa; text-decoration:underline;">Deathy</a></p>
@@ -673,7 +588,111 @@
   </footer>
 
   <script>
-    // ----- Lanyard API fetch -----
+    const COMMANDS_DATA = {
+      moderation: ["ban","unban","kick","mute","unmute","timeout","untimeout","warn","warnings","clearwarnings","warnpurge","purge","slowmode","slowmodeall","lock","unlock","lockdown","unlockdown","nickname","resetnickname","roleadd","roleremove","roleall","massrole","masskick","massban","hidechannel","showchannel","moveuser","voicekick","voicemute","voiceunmute","voiceban","voiceunban","sticky","unsticky","cleanbots","cleanlinks","cleanimages","cleanuser","note","notes","deletenote","modlog","case","cases","caseexport","casenote","reasonedit","modstats","appeal","approveappeal","denyappeal","softban","tempban","tempmute","jail","unjail","banlist","mutelist","permcheck","permsync","channelclone","renamechannel","renamerole","rolecolor","rolecreate","roledelete","nukechannel"],
+      security: ["antiraid","raidmode","raidkick","raidhistory","antispam","spamthreshold","antilink","linkwhitelist","antiinvite","inviteblock","antibot","antiemoji","antimention","antighostping","antihoist","antialt","anticaps","antiselfbot","antiwebhookspam","webhookalert","webhookpurge","wordfilter","wordfilterremove","wordfilterlist","verification","verificationlevel","verify","verificationpanel","captcha","whitelist","unwhitelist","blacklist","unblacklist","trusted","untrusted","trustedrolelist","securitystatus","securityscan","securitypreset","securityconfig","securityreport","securityexport","restorepermissions","auditlog","audituser","permissionaudit","dangerousroles","inviteaudit","botaudit","nukebot","joinlog","leavelog","securitylog","suspicioususers","altcheck","accountage","devicecheck","mfarequire","tokenalert","phishingcheck","urlscan","domaincheck","quarantine","unquarantine","quarantinerole","quarantinelist","emergencylock","lockrole","unlockrole","incidentreport","banappealchannel"],
+      economy: ["balance","networth","daily","dailystreak","weekly","weeklystreak","monthly","work","job","jobinfo","promote","salary","beg","crime","rob","heist","duel","deposit","withdraw","bank","pay","transfer","shop","buy","sell","inventory","iteminfo","useitem","leaderboard","richest","lottery","raffle","gamble","coinflip","slots","blackjack","roulette","scratch","trade","auction","market","economyreset","invest","portfolio","stocks","buystock","sellstock","crafting","mine","fish","hunt","farm","plant","harvest","pet","adoptpet","petfeed","petinfo","petbattle","bounty","bountyboard","claimbounty","taxrate","donate","serverfund","allowance","overtime","quit","resign","fire","hire","employees","payroll","timesheet","clockin","clockout","vacation","sickday","benefits","pension","retire","careerpath","skillpoints","trainskill","certify","internship","apprentice","freelance","gig","contract","moonlight","sidejob","adrevenue","affiliate","referral","referralbonus","influencer","sponsorship","branddeal","viralpost","followergain","subscriberpay","patreon","donationgoal","crowdfund","kickstart","fundinground","seedmoney","angelinvest","venturecapital","unicornstartup","acquisition","buyout","duediligence","termsheet","companyvaluation","equitystake","vestingschedule","businesscreate","businesslist","businessinfo","businessupgrade","businesssell","businessbuy","businessrename","businessstaff","businesshire","businessfire","businessrevenue","businesstax","businessloan","appdev","gamedev","chain","franchise","storefront","apartment","appraisal","atticconvert","basementfinish","eviction","estatesale","forecloseproperty","garageadd","garagesale","homeinspection","landlord","landscaping","mortgage","mortgagepay","poolinstall","property","propertybuy","propertysell","propertylist","propertyrent","propertyrentcollect","propertyupgrade","propertyinsure","realestatemarket","realtor","renovate","tenant","bankloan","loanpay","loanstatus","creditscore","creditcard","creditlimit","creditpay","overdraft","savingsaccount","savingsinterest","cdaccount","retirement401k","ira","insurance","insuranceclaim","lifeinsurance","healthinsurance","warranty","budget","budgetset","budgetreport","expense","expenseadd","expensereport","incomereport","taxfile","taxrefund","taxbracket","taxhaven","offshoreaccount","shellcompany","debtcollector","debtconsolidate","bond","bondbuy","bondsell","bondmature","pawnshop","pawnitem","redeempawn","loanshark","cryptobuy","cryptosell","cryptowallet","cryptomine","cryptostake","cryptojack","nftmint","nftbuy","nftsell","nftgallery","nftauction","rugpull","pumpdump","exitscam","walletdrain","hedgefund","hedgefundjoin","dividend","dividendclaim","dividendyield","shortstock","optionscall","optionsput","margin","marginrecall","stocksplit","stockbuyback","stockoption","stockmanipulate","futurescontract","commodity","commoditybuy","commoditysell","bankheist","robbank","robtrain","robmuseum","heistplan","heistcrew","heistequipment","heistgetaway","banditambush","kidnapransom","gangjoin","gangleave","ganginfo","gangterritory","cartel","cartelboss","mafia","syndicate","underboss","turf","respect","streetcred","hitman","hitcontract","contractkill","bodyguard","bountyhunter","huntbounty","mercenary","protection","extortion","safehouse","launder","moneylaundering","smuggler","fencegoods","blackmarket","darkweb","darkwebmarket","scamcall","phishingscam","identitytheft","creditcardfraud","counterfeit","forgepassport","fakeid","blackmarketid","ponzischeme","hackbank","hackatm","hackcasino","atmskim","botnet","ransomware","malwarekit","phishingkit","carding","skimming","encryptdata","decryptfile","espionage","spynetwork","intel","sabotage","bribeofficial","corruptcop","insidertip","exploit","firewallbreach","vpn","alchemy","potionbrew","potionsell","herbcollect","herbgarden","blacksmith","armorsmith","weaponsmith","goldsmith","silversmith","jewelrycraft","jewelrysell","gemcut","gempolish","craftingrecipe","recipelist","recipelearn","blueprint","blueprintbuy","blueprintsell","schematic","itemupgrade","itemenchant","itemforge","itemrepair","itemdurability","itembreak","itemrecycle","itemmelt","itemdust","cardpack","cardalbum","cardtrade","cardmarket","collectorscard","tradingcard","blindbox","mysterybox","lootbox","rareitem","legendaryitem","distribution","logistics","shipping","freight","customs","importtax","exporttax","tradeembargo","tradedeal","tradewar","sanctions","quota","subsidies","supplychain","supplierdeal","vendoragreement","wholesale","wholesaler","retailer","restocking","inventoryaudit","stocktake","qualitycontrol","productline","productlaunch","productrecall","merchandise","merchsale","discount","coupon","promocode","giftcard","voucher","cashback","membership","subscription","mlm","archaeologydig","digsite","excavate","fossilfind","treasurechest","treasurehunt","treasuremap","silkroad","silktrading","spicemarket","spicetrading","tradecaravan","caravanescort","patent","patentfile","patentsell","licensing","licensedeal","royalty","grant","grantapply","researchfund","rdinvest","innovation","trademark","bankrupt","bailout","liquidate","payoffdebt","banksafe","safedeposit","vault","vaultdeposit","vaultwithdraw","storageunit","inventslot","inventexpand","auctionhouse","auctionbid","auctionwatch","auctionwin","copyrightfile","employeeequity","sharedilution","exitstrategy","drugfarm","drugcook","drugbuy","drugsell","drugdealer","weaponsdealer","fleamarket","mutualfund","pyramidscheme","embargo","tariff","bakery","bookstore","brewery","cabin","cafe","condo","duplex","factory","farmland","fashionline","foodtruck","houseboat","loft","mansion","musicstudio","oilrig","penthouse","ranch","restaurant","techstartup","villa","vineyard","warehouse","artgallery"],
+      social: ["profile","setbio","setcolor","setbanner","badges","marry","divorce","spouse","propose","adopt","disown","family","shiprate","friendcode","addfriend","removefriend","friendlist","block","unblock","blocklist","setmood","mood","moodboard","crush","admire","compliment","roastme","ratewaifu","title","settitle","reputation","giverep","reptop","journal","journaladd","diary","mirror","horoscope","zodiac","personality","aura","simprank","crushlist","meme","joke","pickupline","wouldyourather","truth","dare","confess","confessionboard","hug","kiss","cuddle","pat","poke","tickle","slap","punch","bonk","bite","highfive","handhold","boop","nuzzle","snuggle","wave","bow","blush","cry","laugh","smile","dance","facepalm","shrug","nod","yeet","stare","glare","smirk","wink","yawn","sleepy","think","pout","celebrate","clap","salute","attack","bully","feed","kill","shoot","stab","spank","massage","carry","catch","throw"],
+      utility: ["help","ping","uptime","botinfo","userinfo","serverinfo","roleinfo","channelinfo","avatar","banner","membercount","inviteinfo","emojiinfo","stickerinfo","timezone","reminder","reminders","poll","suggest","translate","calculator","weather","afk","snipe","editsnipe","embed","shorturl","qr","status","stats","settings","todolist","todoadd","tododone","todoremove","notebook","notebookadd","notebookdelete","tag","tagcreate","tagdelete","taglist","define","quote","fact","advice","ascii","binary","base64","hash","color","palette","github","countdown","age","bmi","currency","unitconvert","randomuser","choose","rps","eightball","dice","flip"],
+      advanced: ["automod","smartban","riskscore","heatmap","serverbackup","restorebackup","reactionroles","ticket","close","transcript","giveaway","securitydashboard","economydashboard","dashboard","autorole","welcomemessage","leavemessage","levelsystem","rank","ranktop","xpadd","xpremove","customcommand","customcommandlist","customcommanddelete","scheduler","scheduledlist","scheduledcancel","starboard","eventlog","integrationslist"]
+    };
+
+    const categoryIcons = {
+      moderation: 'fa-gavel',
+      security: 'fa-shield-halved',
+      economy: 'fa-coins',
+      social: 'fa-heart',
+      utility: 'fa-wrench',
+      advanced: 'fa-microchip'
+    };
+
+    let allCommands = [];
+    for (const [cat, cmds] of Object.entries(COMMANDS_DATA)) {
+      for (const cmd of cmds) {
+        allCommands.push({ name: cmd, category: cat });
+      }
+    }
+    const unique = new Map();
+    allCommands.forEach(c => { if (!unique.has(c.name)) unique.set(c.name, c); });
+    allCommands = Array.from(unique.values());
+
+    document.getElementById('totalCmdCount').textContent = allCommands.length;
+
+    const itemsPerPage = 40;
+    let currentPage = 1;
+    let currentFilter = 'all';
+    let currentSearch = '';
+
+    function filterCommands() {
+      let filtered = allCommands;
+      if (currentFilter !== 'all') {
+        filtered = filtered.filter(c => c.category === currentFilter);
+      }
+      if (currentSearch.trim()) {
+        const q = currentSearch.trim().toLowerCase();
+        filtered = filtered.filter(c => c.name.toLowerCase().includes(q));
+      }
+      return filtered;
+    }
+
+    function renderCommands() {
+      const filtered = filterCommands();
+      const total = filtered.length;
+      const totalPages = Math.ceil(total / itemsPerPage);
+      if (currentPage > totalPages) currentPage = totalPages || 1;
+      const start = (currentPage - 1) * itemsPerPage;
+      const end = Math.min(start + itemsPerPage, total);
+      const pageItems = filtered.slice(start, end);
+
+      const grid = document.getElementById('commandsGrid');
+      grid.innerHTML = '';
+      pageItems.forEach(cmd => {
+        const div = document.createElement('div');
+        div.className = 'command-item';
+        div.innerHTML = `
+          <span class="cmd-prefix">/</span>
+          <span class="cmd-name">${cmd.name}</span>
+          <span class="cmd-cat-badge"><i class="fas ${categoryIcons[cmd.category] || 'fa-tag'}"></i> ${cmd.category}</span>
+        `;
+        grid.appendChild(div);
+      });
+
+      document.getElementById('visibleCount').textContent = pageItems.length;
+
+      const pag = document.getElementById('pagination');
+      pag.innerHTML = '';
+      if (totalPages <= 1) return;
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        if (i === currentPage) btn.className = 'active';
+        btn.addEventListener('click', () => {
+          currentPage = i;
+          renderCommands();
+          document.getElementById('commandsGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        pag.appendChild(btn);
+      }
+    }
+
+    document.getElementById('cmdSearch').addEventListener('input', (e) => {
+      currentSearch = e.target.value;
+      currentPage = 1;
+      renderCommands();
+    });
+
+    document.querySelectorAll('#categoryFilter button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#categoryFilter button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.cat;
+        currentPage = 1;
+        renderCommands();
+      });
+    });
+
+    renderCommands();
+
     const USER_ID = '1418597263479144471';
     const LANYARD_URL = `https://api.lanyard.rest/v1/users/${USER_ID}`;
 
@@ -682,66 +701,34 @@
         const res = await fetch(LANYARD_URL);
         if (!res.ok) throw new Error('Lanyard fetch failed');
         const data = await res.json();
-        if (data.success) {
-          updateUI(data.data);
-        } else {
-          throw new Error('Invalid response');
-        }
+        if (data.success) updateUI(data.data);
+        else throw new Error('Invalid response');
       } catch (err) {
         console.warn('Lanyard error:', err);
         document.getElementById('devName').textContent = 'Deathy';
         document.getElementById('devStatusText').textContent = 'Offline';
         document.getElementById('statusDot').className = 'status-dot offline';
-        // fallback avatar
         document.getElementById('devAvatar').src = 'https://cdn.discordapp.com/avatars/1418597263479144471/unknown.png?size=128';
       }
     }
 
     function updateUI(data) {
-      // Avatar
       const avatarUrl = `https://cdn.discordapp.com/avatars/${data.discord_user.id}/${data.discord_user.avatar}.png?size=128`;
       document.getElementById('devAvatar').src = avatarUrl;
-
-      // Name
       document.getElementById('devName').textContent = data.discord_user.global_name || data.discord_user.username;
-
-      // Status
       const status = data.discord_status || 'offline';
       const dot = document.getElementById('statusDot');
       dot.className = `status-dot ${status}`;
-      const statusMap = {
-        online: 'Online',
-        idle: 'Idle',
-        dnd: 'Do Not Disturb',
-        offline: 'Offline'
-      };
+      const statusMap = { online: 'Online', idle: 'Idle', dnd: 'Do Not Disturb', offline: 'Offline' };
       document.getElementById('devStatusText').textContent = statusMap[status] || 'Offline';
-
-      // Custom status (optional)
-      if (data.activities && data.activities.length > 0) {
+      if (data.activities && data.activities.length) {
         const custom = data.activities.find(a => a.type === 4);
-        if (custom) {
-          document.getElementById('devStatusText').textContent += ` · ${custom.state || ''}`;
-        }
+        if (custom) document.getElementById('devStatusText').textContent += ` · ${custom.state || ''}`;
       }
-
-      // Discord profile link (using ID)
       document.getElementById('devDiscordLink').href = `https://discord.com/users/${data.discord_user.id}`;
     }
 
     fetchLanyard();
-
-    // ----- Scroll reveal (Intersection Observer) -----
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-    reveals.forEach(el => observer.observe(el));
   </script>
 </body>
-          </html>
+</html>
