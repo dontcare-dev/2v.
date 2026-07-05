@@ -318,14 +318,16 @@
       font-size: 0.85rem;
       font-weight: 500;
       border: 1px solid rgba(255,255,255,0.05);
-      transition: background 0.15s, border-color 0.15s;
+      transition: background 0.15s, border-color 0.15s, transform 0.15s;
       display: flex;
       align-items: center;
       gap: 0.4rem;
+      cursor: pointer;
     }
     .command-item:hover {
       background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.15);
+      transform: scale(1.02);
     }
     .command-item .cmd-prefix {
       color: #777;
@@ -441,6 +443,160 @@
     }
     footer i { margin: 0 4px; }
 
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      animation: fadeIn 0.3s ease;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-box {
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 2.5rem;
+      max-width: 600px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      animation: slideUp 0.3s ease;
+    }
+    .modal-box::-webkit-scrollbar {
+      width: 4px;
+    }
+    .modal-box::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.02);
+    }
+    .modal-box::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: #888;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.2s;
+      font-family: inherit;
+    }
+    .modal-close:hover {
+      color: #fff;
+    }
+    .modal-category {
+      display: inline-block;
+      background: rgba(255,255,255,0.06);
+      padding: 0.2rem 1rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: #aaa;
+      margin-bottom: 0.5rem;
+    }
+    .modal-category i {
+      margin-right: 4px;
+    }
+    .modal-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -1px;
+    }
+    .modal-prefix {
+      display: inline-block;
+      background: rgba(255,255,255,0.04);
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #aaa;
+      border: 1px solid rgba(255,255,255,0.06);
+      font-family: 'Inter', monospace;
+      margin-bottom: 1.2rem;
+    }
+    .modal-description {
+      color: #ccc;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .modal-usage {
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      margin-top: 1.2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .modal-usage-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #666;
+      margin-bottom: 0.3rem;
+    }
+    .modal-usage code {
+      color: #eee;
+      font-family: 'Inter', monospace;
+      font-size: 0.95rem;
+      background: rgba(255,255,255,0.04);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+    }
+    .modal-actions {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .modal-actions .btn-sm {
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: #ccc;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .modal-actions .btn-sm:hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+    .modal-actions .btn-sm.primary {
+      background: #fff;
+      color: #0b0b0b;
+      border-color: #fff;
+    }
+    .modal-actions .btn-sm.primary:hover {
+      background: #ddd;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
     @media (max-width: 768px) {
       .container { padding: 0 1.2rem; }
       .hero h1 { font-size: 3rem; }
@@ -450,6 +606,8 @@
       .nav-links { display: none; }
       .commands-grid { grid-template-columns: 1fr 1fr; max-height: 400px; }
       .dev-card { flex-direction: column; text-align: center; padding: 1.5rem; }
+      .modal-box { padding: 1.5rem; margin: 1rem; }
+      .modal-title { font-size: 1.5rem; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 2.4rem; }
@@ -476,6 +634,24 @@
       </ul>
     </div>
   </nav>
+
+  <div class="modal-overlay" id="commandModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-category" id="modalCategory"><i class="fas fa-tag"></i> <span>Category</span></div>
+      <h2 class="modal-title" id="modalTitle">command</h2>
+      <div class="modal-prefix" id="modalPrefix">/command</div>
+      <div class="modal-description" id="modalDescription">Description goes here.</div>
+      <div class="modal-usage">
+        <div class="modal-usage-label">How to use</div>
+        <code id="modalUsage">.command</code>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-sm primary" id="modalInvite"><i class="fas fa-plus-circle"></i> Invite Bot</button>
+        <button class="btn-sm" id="modalCloseBtn">Close</button>
+      </div>
+    </div>
+  </div>
 
   <section class="hero" id="home">
     <div class="hero-content">
@@ -540,7 +716,7 @@
   <section id="commands">
     <div class="container">
       <h2 class="section-title"><i class="fas fa-list"></i> Command List</h2>
-      <p class="section-sub">All <span id="totalCmdCount"></span> commands, organised by category. Search or filter below.</p>
+      <p class="section-sub">All <span id="totalCmdCount"></span> commands, organised by category. Search or filter below. <strong>Click any command</strong> to see how to use it.</p>
       <div class="commands-wrapper">
         <div class="commands-search">
           <input type="text" id="cmdSearch" placeholder="Search commands..." />
@@ -614,6 +790,114 @@
       advanced: ["automod","smartban","riskscore","heatmap","serverbackup","restorebackup","reactionroles","ticket","close","transcript","giveaway","securitydashboard","economydashboard","dashboard","autorole","welcomemessage","leavemessage","levelsystem","rank","ranktop","xpadd","xpremove","customcommand","customcommandlist","customcommanddelete","scheduler","scheduledlist","scheduledcancel","starboard","eventlog","integrationslist"]
     };
 
+    const COMMAND_DESCRIPTIONS = {
+      ban: "Permanently remove a member from the server.",
+      kick: "Remove a member from the server (they can rejoin).",
+      mute: "Timeout a member so they can't send messages.",
+      unmute: "Remove a timeout from a member.",
+      warn: "Issue a formal warning to a member.",
+      warnings: "View a member's warning history.",
+      purge: "Bulk delete recent messages.",
+      slowmode: "Set slowmode for a channel.",
+      lock: "Lock a channel so members can't send messages.",
+      unlock: "Unlock a previously locked channel.",
+      lockdown: "Lock every channel in the server.",
+      unlockdown: "Unlock every channel in the server.",
+      nickname: "Change a member's nickname.",
+      resetnickname: "Reset a member's nickname to default.",
+      roleadd: "Add a role to a member.",
+      roleremove: "Remove a role from a member.",
+      help: "Browse all commands or search for a specific one.",
+      ping: "Check the bot's response latency.",
+      uptime: "Check how long the bot has been running.",
+      botinfo: "View detailed information about the bot.",
+      userinfo: "View detailed information about a member.",
+      serverinfo: "View detailed information about the server.",
+      balance: "Check your wallet and bank balance.",
+      daily: "Claim your daily coin reward.",
+      work: "Work your job to earn coins.",
+      job: "Choose or change your job.",
+      beg: "Beg strangers for spare coins.",
+      crime: "Attempt a risky crime for a big payout.",
+      rob: "Attempt to rob another member.",
+      duel: "Challenge another member to a coin duel.",
+      deposit: "Move coins from wallet to bank.",
+      withdraw: "Move coins from bank to wallet.",
+      pay: "Send coins to another member.",
+      shop: "Browse the server item shop.",
+      buy: "Buy an item from the shop.",
+      inventory: "View your item inventory.",
+      profile: "View a member's social profile card.",
+      hug: "Send a hug GIF to someone.",
+      kiss: "Send a kiss GIF to someone.",
+      cuddle: "Send a cuddle GIF to someone.",
+      pat: "Send a pat GIF to someone.",
+      poke: "Send a poke GIF to someone.",
+      slap: "Send a slap GIF to someone.",
+      marry: "Propose marriage to another member.",
+      divorce: "End your current marriage.",
+      spouse: "View who a member is married to.",
+      friendcode: "Get your unique friend code to share.",
+      addfriend: "Add another member as a friend.",
+      removefriend: "Remove a member from your friends list.",
+      friendlist: "View a member's friends list.",
+      block: "Block another member from interacting with your profile.",
+      unblock: "Unblock a member.",
+      blocklist: "View your blocked members list.",
+      setmood: "Set your current mood status.",
+      mood: "Check a member's current mood.",
+      reputation: "Check a member's reputation score.",
+      giverep: "Give a reputation point to a member.",
+      reptop: "View the server's reputation leaderboard.",
+      journal: "View your personal journal entries.",
+      journaladd: "Add an entry to your personal journal.",
+      meme: "Get a random meme-style joke text.",
+      joke: "Get a random joke.",
+      pickupline: "Get a cheesy random pickup line.",
+      wouldyourather: "Get a random 'would you rather' question.",
+      truth: "Get a random truth question.",
+      dare: "Get a random dare.",
+      confess: "Submit an anonymous confession to the server.",
+      antiraid: "Toggle anti-raid protection.",
+      antispam: "Toggle anti-spam message detection.",
+      antilink: "Toggle anti-link filtering.",
+      antiinvite: "Toggle anti-invite filtering.",
+      antibot: "Toggle automatic kicking of new bot accounts.",
+      antimention: "Toggle anti mass-mention protection.",
+      antihoist: "Toggle auto-fix for name hoisting.",
+      antialt: "Toggle auto-kick for new accounts.",
+      anticaps: "Toggle excessive caps filtering.",
+      verification: "Toggle the custom verification gate.",
+      verify: "Verify yourself to gain server access.",
+      whitelist: "Exempt a user from automated security filters.",
+      blacklist: "Blacklist a user (auto-banned if they join).",
+      trusted: "Mark a user as trusted (bypasses most filters).",
+      securitystatus: "View a dashboard of all active security modules.",
+      securityscan: "Scan the server for suspicious accounts.",
+      quarantine: "Quarantine a user, stripping roles and access.",
+      unquarantine: "Release a user from quarantine.",
+      emergencylock: "Immediately lock down the entire server.",
+      automod: "View the consolidated automod configuration dashboard.",
+      smartban: "Ban a user using a calculated risk score as evidence.",
+      riskscore: "Calculate a member's behavioral risk score.",
+      heatmap: "View a server activity overview.",
+      serverbackup: "Save a snapshot of server roles and channels.",
+      reactionroles: "Bind an emoji reaction to a role on a message.",
+      ticket: "Open a private support ticket.",
+      close: "Close the current support ticket.",
+      transcript: "Generate a transcript of this channel's recent messages.",
+      giveaway: "Start a giveaway with a button to enter.",
+      dashboard: "View the master server dashboard.",
+      autorole: "Set a role automatically given to new members.",
+      levelsystem: "Toggle the XP/leveling system.",
+      rank: "View your current level and XP progress.",
+      ranktop: "View the server's XP leaderboard.",
+      customcommand: "Create a custom server command.",
+      scheduler: "Schedule a message to be sent later.",
+      starboard: "Configure the starboard system.",
+      eventlog: "Set a general-purpose server event log channel.",
+    };
+
     const categoryIcons = {
       moderation: 'fa-gavel',
       security: 'fa-shield-halved',
@@ -671,6 +955,7 @@
           <span class="cmd-name">${cmd.name}</span>
           <span class="cmd-cat-badge"><i class="fas ${categoryIcons[cmd.category] || 'fa-tag'}"></i> ${cmd.category}</span>
         `;
+        div.addEventListener('click', () => openModal(cmd.name, cmd.category));
         grid.appendChild(div);
       });
 
@@ -691,6 +976,39 @@
         pag.appendChild(btn);
       }
     }
+
+    function openModal(commandName, category) {
+      const desc = COMMAND_DESCRIPTIONS[commandName] || "No description available for this command.";
+      const categoryLabel = category.charAt(0).toUpperCase() + category.slice(1);
+      const icon = categoryIcons[category] || 'fa-tag';
+
+      document.getElementById('modalCategory').innerHTML = `<i class="fas ${icon}"></i> ${categoryLabel}`;
+      document.getElementById('modalTitle').textContent = commandName;
+      document.getElementById('modalPrefix').textContent = `/${commandName}`;
+      document.getElementById('modalDescription').textContent = desc;
+      document.getElementById('modalUsage').textContent = `.${commandName}`;
+
+      document.getElementById('commandModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('commandModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+    document.getElementById('commandModal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    document.getElementById('modalInvite').addEventListener('click', () => {
+      window.open('https://discord.com/oauth2/authorize?client_id=1499412051418812479', '_blank');
+    });
 
     document.getElementById('cmdSearch').addEventListener('input', (e) => {
       currentSearch = e.target.value;
