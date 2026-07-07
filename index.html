@@ -211,6 +211,43 @@
     }
     .section-title i { margin-right: 12px; color: #aaa; font-size: 1.8rem; }
 
+    .privacy-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .privacy-content h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 2rem 0 0.8rem 0;
+      color: #fff;
+    }
+    .privacy-content h3:first-of-type { margin-top: 0; }
+    .privacy-content p {
+      color: #ccc;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .privacy-content ul {
+      color: #ccc;
+      margin: 0.5rem 0 1rem 1.5rem;
+      list-style: disc;
+    }
+    .privacy-content ul li {
+      margin-bottom: 0.4rem;
+    }
+    .privacy-content .highlight-box {
+      background: rgba(255,255,255,0.04);
+      border-left: 3px solid #5865F2;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      margin: 1.2rem 0;
+    }
+    .privacy-content .highlight-box p {
+      margin-bottom: 0;
+      color: #ddd;
+    }
+
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -608,6 +645,7 @@
       .dev-card { flex-direction: column; text-align: center; padding: 1.5rem; }
       .modal-box { padding: 1.5rem; margin: 1rem; }
       .modal-title { font-size: 1.5rem; }
+      .privacy-content { padding: 0 0.5rem; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 2.4rem; }
@@ -628,8 +666,10 @@
         <span>^^</span>
       </div>
       <ul class="nav-links" id="navLinks">
+        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
         <li><a href="#commands"><i class="fas fa-list"></i> Commands</a></li>
+        <li><a href="#privacy"><i class="fas fa-shield-halved"></i> Privacy</a></li>
         <li><a href="#invite" class="nav-cta"><i class="fas fa-plus-circle"></i> Invite</a></li>
       </ul>
     </div>
@@ -737,6 +777,94 @@
     </div>
   </section>
 
+  <section id="privacy">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-shield-halved"></i> Privacy Policy</h2>
+      <p class="section-sub">Last updated: July 2026</p>
+      <div class="privacy-content">
+        <div class="highlight-box">
+          <p><strong>TL;DR:</strong> ^^ only stores data necessary for functionality. We do not sell or share your data. You can request deletion at any time.</p>
+        </div>
+
+        <h3>1. Information We Collect</h3>
+        <p>^^ collects and stores the following data to provide its core functionality:</p>
+        <ul>
+          <li><strong>User IDs:</strong> Used for economy balances, warnings, levels, and user-specific settings.</li>
+          <li><strong>Server IDs:</strong> Used to store server-specific configurations (moderation settings, economy data, etc.).</li>
+          <li><strong>Message Content:</strong> Only when explicitly used in commands (e.g., <code>/reminder</code>, <code>/note</code>, <code>/poll</code>).</li>
+          <li><strong>Command Usage:</strong> We log command usage anonymously for performance monitoring.</li>
+        </ul>
+
+        <h3>2. How We Use Your Data</h3>
+        <ul>
+          <li>To provide and maintain the bot's core features</li>
+          <li>To improve and optimize the bot's performance</li>
+          <li>To enforce moderation and security features</li>
+          <li>To store user preferences and progress (economy, levels, etc.)</li>
+        </ul>
+
+        <h3>3. Data Storage</h3>
+        <ul>
+          <li>Data is stored locally in a <code>bot_data.json</code> file on the host server</li>
+          <li>No external databases or third-party storage services are used</li>
+          <li>Data is not shared, sold, or transmitted to any third party</li>
+          <li>All data is stored securely with appropriate access controls</li>
+        </ul>
+
+        <h3>4. Data Retention</h3>
+        <ul>
+          <li>Data is retained indefinitely unless manually deleted or requested for removal</li>
+          <li>You can request deletion of your data by contacting the developer</li>
+          <li>Server administrators can clear server-specific data via <code>/economyreset</code> and similar commands</li>
+        </ul>
+
+        <h3>5. Third-Party APIs</h3>
+        <ul>
+          <li><strong>Nekos.best:</strong> Used for anime reaction GIFs. No data is transmitted to this API other than the category requested.</li>
+          <li><strong>Discord API:</strong> All data is processed through Discord's official API in accordance with their Terms of Service.</li>
+          <li><strong>Lanyard API:</strong> Used to display developer presence. Only your Discord User ID is sent.</li>
+        </ul>
+
+        <h3>6. Discord Developer Terms Compliance</h3>
+        <p>^^ complies with Discord's Developer Terms of Service and Platform Policy:</p>
+        <ul>
+          <li>We do not collect or store message content without explicit user command</li>
+          <li>We do not share user data with any third party</li>
+          <li>We provide clear means to request data deletion</li>
+          <li>We use data only for the functionality described in this policy</li>
+          <li>We maintain appropriate security measures to protect stored data</li>
+        </ul>
+
+        <h3>7. User Rights</h3>
+        <p>As a user of ^^, you have the following rights:</p>
+        <ul>
+          <li><strong>Right to Access:</strong> Request a copy of your stored data</li>
+          <li><strong>Right to Rectification:</strong> Correct inaccurate data</li>
+          <li><strong>Right to Erasure:</strong> Request deletion of your data</li>
+          <li><strong>Right to Restrict Processing:</strong> Limit how your data is used</li>
+        </ul>
+
+        <h3>8. Data Deletion</h3>
+        <p>To request deletion of your data, contact the developer via Discord at <strong>@deathy</strong> or through the developer's <a href="https://dontcare-dev.github.io/Deathy.2v.dev/" target="_blank" style="color: #5865F2; text-decoration: underline;">portfolio</a>.</p>
+
+        <h3>9. Changes to This Policy</h3>
+        <p>This Privacy Policy may be updated from time to time. We will notify users of any material changes by updating the "Last updated" date at the top of this policy.</p>
+
+        <h3>10. Contact</h3>
+        <p>If you have any questions about this Privacy Policy, please contact:</p>
+        <ul>
+          <li><strong>Developer:</strong> Deathy</li>
+          <li><strong>Discord:</strong> @deathy</li>
+          <li><strong>Portfolio:</strong> <a href="https://dontcare-dev.github.io/Deathy.2v.dev/" target="_blank" style="color: #5865F2; text-decoration: underline;">dontcare-dev.github.io/Deathy.2v.dev</a></li>
+        </ul>
+
+        <div class="highlight-box" style="margin-top: 2rem; border-left-color: #57F287;">
+          <p><strong>✅ Compliance:</strong> ^^ is committed to protecting your privacy and complying with Discord's Developer Terms of Service, GDPR, and applicable data protection laws.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="invite">
     <div class="container">
       <div class="invite-section">
@@ -776,7 +904,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 ^^ Bot · Made with <i class="fas fa-heart" style="color:#888;"></i> by <a href="https://dontcare-dev.github.io/Deathy.2v.dev/" target="_blank" style="color:#aaa; text-decoration:underline;">Deathy</a></p>
+      <p>&copy; 2026 ^^ Bot · Made with <i class="fas fa-heart" style="color:#888;"></i> by <a href="https://dontcare-dev.github.io/Deathy.2v.dev/" target="_blank" style="color:#aaa; text-decoration:underline;">Deathy</a> · <a href="#privacy" style="color:#666; text-decoration:underline;">Privacy Policy</a></p>
     </div>
   </footer>
 
